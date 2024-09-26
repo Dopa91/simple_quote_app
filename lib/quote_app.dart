@@ -1,19 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:simple_quote_app/data/quote_repository.dart';
-import 'package:simple_quote_app/data/multiple_quote_repository.dart';
+//import 'package:simple_quote_app/data/multiple_quote_repository.dart'
 import 'package:simple_quote_app/model/quote_data.dart';
 
-class QuoteApp extends StatelessWidget {
+class QuoteApp extends StatefulWidget {
   const QuoteApp({super.key, required this.repository});
 
   final QuoteRepository repository;
 
   @override
+  State<QuoteApp> createState() => QuoteAppState();
+}
+
+// class QuoteAppState extends State<QuoteApp> {
+//   late QuoteData newQuote;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     return setState(() {
+//       newQuote = widget.repository.getQuote();
+//     });
+//   }
+
+//   void getNewQuote() {
+//     setState(() {
+//       newQuote = widget.repository.getQuote();
+//     });
+//   }
+class QuoteAppState extends State<QuoteApp> {
+  @override
   Widget build(BuildContext context) {
-    final QuoteData quote = repository.getQuote();
-    final String author = quote.author;
-    final String text = quote.text;
-    final int ranking = quote.ranking;
+    QuoteData quote = widget.repository.getQuote();
+    String author = quote.author;
+    String text = quote.text;
+    int ranking = quote.ranking;
 
     return Scaffold(
       appBar: AppBar(
@@ -45,13 +66,20 @@ class QuoteApp extends StatelessWidget {
                 height: 32,
               ),
               Container(
-                color: Colors.blue,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    color: Colors.purple),
+                width: 256,
                 child: IconButton(
-                    onPressed: () => repository.getQuote,
-                    icon: const Icon(
-                      Icons.cake,
-                      color: Colors.purple,
-                    )),
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  // newQuote = widget.repository.getQuote();
+                  icon: const Icon(
+                    Icons.cake,
+                    color: Colors.lightBlueAccent,
+                  ),
+                ),
               ),
             ],
           ),
