@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_quote_app/data/multiple_quote_repository.dart';
 import 'package:simple_quote_app/data/quote_repository.dart';
-//import 'package:simple_quote_app/data/single_quote_repository.dart';
+import 'package:simple_quote_app/data/single_quote_repository.dart';
 import 'package:simple_quote_app/quote_app.dart';
 
 void main() {

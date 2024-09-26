@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_quote_app/data/quote_repository.dart';
+import 'package:simple_quote_app/data/multiple_quote_repository.dart';
 import 'package:simple_quote_app/model/quote_data.dart';
 
 class QuoteApp extends StatelessWidget {
@@ -40,6 +41,18 @@ class QuoteApp extends StatelessWidget {
               Text("- $author"),
               const SizedBox(height: 16),
               Text("Ranking: $ranking/10"),
+              const SizedBox(
+                height: 32,
+              ),
+              Container(
+                color: Colors.blue,
+                child: IconButton(
+                    onPressed: () => repository.getQuote,
+                    icon: const Icon(
+                      Icons.cake,
+                      color: Colors.purple,
+                    )),
+              ),
             ],
           ),
         ),
